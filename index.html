@@ -1,28 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio homepage of Fifi., Showcasing my web development projects and skills.">
+    <title>Home | Fifi's Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="header">
-        <h1>My Portfolio</h1>
-        <!-- Navigation missing -->
-    </div>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     
-    <div class="hero">
-        <h2>Welcome to My Portfolio</h2>
-        <p>I am a web developer passionate about creating beautiful websites.</p>
-        <img src="images/hero.jpg">
-    </div>
+    <nav class="main-nav" aria-label="Primary">
+      <a href="index.html" id="site-logo">Fifi<span>.</span></a>
+      <ul class="nav-list">
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+    <main id="main-content">
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Hi, I'm Tshifhiwa Makherana &mdash; a Front-End Web Developer</h1>
+        <p>I am building my skills in front-end and back-end development,
+         working with technologies such as HTML, CSS, JavaScript, React, Java, and databases. 
+         I care about semantic markup, fast-loading pages and designs everyone can use.</p>
     
-    <div class="intro">
-        <h2>About Me</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    </div>
+    <p class="btn-group">
+          <a class="btn" href="projects.html">View My Work</a>
+          <a class="btn btn-outline" href="contact.html">Contact Me</a>
+        </p>
     
-    <div class="footer">
-        <p>Contact me at email@example.com</p>
-    </div>
+     <ul class="social-list" aria-label="Social media links">
+          <li>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Visit my Facebook profile">
+              <img src="images/Icons/facebook.png" alt="Facebook icon">
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Visit my X (Twitter) profile">
+              <img src="images/Icons/twitter.png" alt="X (Twitter) icon">
+            </a>
+          </li>
+          <li>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="Visit my LinkedIn profile">
+              <img src="images/Icons/linkedin.png" alt="LinkedIn icon">
+            </a>
+          </li>
+          <li>
+            <a href="mailto:fifidev@gmail.com" aria-label="Email me via Outlook">
+              <img src="images/Icons/outlook.png" alt="Outlook email icon">
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    <figure class="hero-image">
+        <img src="images/hero.jpeg" alt="A web developer working at a laptop surrounded by code windows">
+      </figure>
+    </section>
+
+<section class="intro">
+      <h2>What I Do</h2>
+      <p>I am currently learning front end and back end development: writing
+        semantic HTML, styling with modern CSS, and making sure every page is
+        readable, navigable and accessible on any device. Recent work includes
+        a personal website, a calculator app and UI/UX design projects.
+        Take a look at the <a href="projects.html">projects page</a> to see
+        my work, or head to the <a href="contact.html">contact page</a> if
+        you'd like to connect with me.</p>
+    </section>
+  </main>
+
+<footer>
+    <p>&copy; 2026 Fifi Makherana All rights reserved.</p>
+    <p>Contact me on the following email: <a href="mailto:fifidev@gmail.com">fifidev@gmail.com</a></p>
+    <address>55 Dorp street, polokwane, 0699, South Africa</address>
+  </footer>
 </body>
 </html>
+
