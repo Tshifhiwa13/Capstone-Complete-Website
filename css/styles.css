@@ -65,7 +65,7 @@ a {
 header {
   background-color: var(--color-dark);
   color: #ffffff;
-  padding: 20px 30px;
+  padding: 14px 30px;
 }
 
 .main-nav {
@@ -78,7 +78,7 @@ header {
 }
 
 #site-logo {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: bold;
   color: #ffffff;
   text-decoration: none;
@@ -91,8 +91,8 @@ header {
 .nav-list {
   list-style: none;
   display: flex;
-  gap: 8px;
-  margin: 10px 0 0 0;
+  gap: 4px;
+  margin: 0;
   padding: 0;
 }
 
@@ -181,10 +181,10 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 40px;
+  gap: 56px;
   flex-wrap: wrap;
   background-color: var(--color-bg-light);
-  padding: 60px 30px;
+  padding: 42px 30px 56px 30px;
 }
 
 .hero-text {
@@ -631,6 +631,11 @@ footer a:hover {
 
   .hero-text {
     max-width: 100%;
+  }
+
+  .hero-image img {
+    width: 280px;
+    height: 280px;
   }
 
   .footer-content {
