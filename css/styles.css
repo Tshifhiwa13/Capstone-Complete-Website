@@ -1,65 +1,642 @@
-/* Basic styles with errors and omissions */
+
+:root {
+  --color-dark: #292732;      /* headings, footer background, body text */
+  --color-accent: #7628e8;    /* buttons, links and active states */
+  --color-accent-light: #b995ff; /* links on dark backgrounds (footer) */
+  --color-bg-light: #f1f1f3;  /* hero / alternating rows */
+  --color-border: #d9d9df;
+  --font-main: Arial, Helvetica, sans-serif;
+}
+
+
+* {
+  box-sizing: border-box;
+}
 
 body {
-    font-family: Arial;
-    margin: 0;
-    padding: 0;
-    color: #333;
+  font-family: var(--font-main);
+  margin: 0;
+  padding: 0;
+  color: var(--color-dark);
+  line-height: 1.6;
+  background-color: #ffffff;
 }
 
-.header {
-    background-color: #222;
-    color: white;
-    padding: 20px;
-    /* Missing: proper alignment */
+h1,
+h2,
+h3 {
+  line-height: 1.25;
 }
 
-.header h1 {
-    margin: 0;
+img {
+  max-width: 100%;
+  display: block;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
 }
 
-/* Navigation styling missing completely */
+/* Global pseudo-class: every image on the site reacts on hover */
+img:hover {
+  transform: scale(1.04);
+  opacity: 0.95;
+}
 
+a {
+  color: var(--color-accent);
+}
+
+/* Skip link: hidden until it receives keyboard focus (accessibility) */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--color-dark);
+  color: #ffffff;
+  padding: 10px 16px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* =========================================================================
+   Header & Navigation
+   ========================================================================= */
+header {
+  background-color: var(--color-dark);
+  color: #ffffff;
+  padding: 20px 30px;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+#site-logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+#site-logo span {
+  color: var(--color-accent-light);
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  margin: 10px 0 0 0;
+  padding: 0;
+}
+
+/* Descendant selector: anchors that live inside the nav list */
+.nav-list a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Pseudo-class: hover state on navigation links */
+.nav-list a:hover {
+  background-color: var(--color-accent);
+}
+
+/* Pseudo-class: keyboard focus state, kept distinct from hover for a11y */
+.nav-list a:focus {
+  outline: 2px solid var(--color-accent-light);
+  outline-offset: 2px;
+}
+
+/* Attribute selector: highlight the current page in the nav */
+.nav-list a[aria-current="page"] {
+  background-color: var(--color-accent);
+  font-weight: bold;
+}
+
+/* =========================================================================
+   Buttons (shared across pages)
+   ========================================================================= */
+.btn {
+  display: inline-block;
+  background-color: var(--color-accent);
+  color: #ffffff;
+  text-decoration: none;
+  padding: 12px 24px;
+  margin-top: 16px;
+  border: 2px solid var(--color-accent);
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background-color: var(--color-dark);
+  border-color: var(--color-dark);
+  transform: translateY(-2px);
+}
+
+.btn:focus {
+  outline: 3px solid var(--color-accent-light);
+  outline-offset: 2px;
+}
+
+.btn-group {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin: 16px 0 0 0;
+}
+
+
+.btn-group .btn {
+  margin-top: 0;
+}
+
+/* Secondary button style, used for "Contact Me" calls to action */
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-accent);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-accent);
+  color: #ffffff;
+}
+
+/* =========================================================================
+   Hero section (index.html)
+   ========================================================================= */
 .hero {
-    padding: 50px;
-    background-color: lightblue;
-    /* Poor colour contrast */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  background-color: var(--color-bg-light);
+  padding: 60px 30px;
 }
 
-.hero h2 {
-    font-size: 36px;
+.hero-text {
+  max-width: 480px;
 }
 
-.hero img {
-    width: 100%;
-    /* Missing: alt text handled in HTML, but sizing issues here */
+.hero-text h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
 }
 
-/* Missing: Only using 2-3 selector types, need 5+ */
-/* Missing: Pseudo-classes not used */
-/* Missing: Combination selectors not used */
-
-.intro {
-    padding: 30px;
+/* Social media icon list (Home page hero) */
+.social-list {
+  list-style: none;
+  display: flex;
+  gap: 14px;
+  margin: 20px 0 0 0;
+  padding: 0;
 }
 
-/* Form styling incomplete */
-form input {
-    display: block;
-    margin: 10px 0;
+.social-list img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: transparent;
+  filter: grayscale(1) brightness(0);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Missing: Box model demonstration (margin, padding, border) */
-/* Missing: Block vs inline elements styling */
-/* Missing: Text and colour styling variety */
-/* Missing: Table styling */
-
-.footer {
-    background-color: gray;
-    color: white;
-    padding: 20px;
-    /* Wrong alignment */
-    text-align: left;
+.social-list a:hover img,
+.social-list a:focus img {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
 }
 
-/* Code quality issues: inconsistent spacing, poor naming, no comments */
+.social-list a:focus {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 50%;
+}
+
+.hero-image img {
+  width: 320px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid #ffffff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.intro,
+.projects-intro {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 30px;
+}
+
+
+.contact-intro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 30px;
+}
+
+.contact-intro-text {
+  max-width: 480px;
+}
+
+.contact-image img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--color-border);
+}
+
+/* =========================================================================
+   About page
+   ========================================================================= */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 30px;
+}
+
+.profile-photo img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--color-border);
+}
+
+.profile-text {
+  flex: 1;
+  min-width: 260px;
+}
+
+/* ---------- My Learnings section (Courses page) ---------- */
+.learnings-intro {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 30px 0 30px;
+}
+
+.learnings-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 30px 50px 30px;
+}
+
+.learning-card {
+  flex: 1 1 280px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #ffffff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.learning-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.learning-card h2 {
+  margin: 0;
+  padding: 12px 16px;
+  background-color: var(--color-dark);
+  color: #ffffff;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.learning-card ul {
+  margin: 0;
+  padding: 16px 20px 16px 36px;
+}
+
+.learning-card li {
+  margin-bottom: 8px;
+}
+
+.skills {
+  max-width: 1000px;
+  margin: 0 auto 50px auto;
+  padding: 0 30px;
+}
+
+.page-cta {
+  max-width: 1000px;
+  margin: 30px auto 0 auto;
+  padding: 0 30px;
+}
+
+/* ---------- Certificates section ---------- */
+.certificates {
+  max-width: 1000px;
+  margin: 0 auto 60px auto;
+  padding: 0 30px;
+  scroll-margin-top: 20px;
+}
+
+.cert-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.cert-card {
+  flex: 1 1 220px;
+  border: 1px solid var(--color-dark);
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: var(--color-dark);
+  color: #ffffff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cert-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cert-card h3 {
+  margin: 0;
+  padding: 12px 16px;
+  background-color: var(--color-dark);
+  border-bottom: 1px solid #5a5665;
+  color: #ffffff;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.cert-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.cert-card p {
+  margin: 0;
+  padding: 12px 16px 16px 16px;
+  font-size: 0.92rem;
+  color: #d7d4df;
+}
+
+/* ---------- Table styling ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+  border: 1px solid var(--color-border);
+}
+
+caption {
+  text-align: left;
+  font-style: italic;
+  margin-bottom: 8px;
+  color: #4b5563;
+}
+
+table thead th {
+  background-color: var(--color-dark);
+  color: #ffffff;
+  text-align: left;
+  padding: 12px 16px;
+  border: 1px solid var(--color-dark);
+}
+
+table tbody td {
+  padding: 12px 16px;
+  border: 1px solid var(--color-border);
+}
+
+/* Pseudo-class: alternating row colours for readability */
+table tbody tr:nth-child(even) {
+  background-color: var(--color-bg-light);
+}
+
+table tbody tr:hover {
+  background-color: #f0eaff;
+}
+
+/* =========================================================================
+   Projects page
+   ========================================================================= */
+.project-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 30px 60px 30px;
+}
+
+.project-card {
+  flex: 1 1 300px;
+  border: 1px solid var(--color-dark);
+  border-radius: 6px;
+  padding: 20px;
+  margin: 0;
+  background-color: var(--color-dark);
+  color: #ffffff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.project-card img {
+  border-radius: 4px;
+  margin-bottom: 14px;
+}
+
+.project-card h3 {
+  margin: 0 0 8px 0;
+}
+
+/* =========================================================================
+   Contact page & form
+   ========================================================================= */
+form {
+  max-width: 700px;
+  margin: 0 auto 60px auto;
+  padding: 0 30px;
+}
+
+fieldset {
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 20px 24px;
+  margin: 0 0 24px 0;
+}
+
+legend {
+  font-weight: bold;
+  padding: 0 8px;
+  color: var(--color-dark);
+}
+
+form label {
+  display: block;
+  margin: 14px 0 6px 0;
+  font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form select,
+form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  margin: 0 0 4px 0;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(118, 40, 232, 0.2);
+}
+
+.radio-group {
+  border: none;
+  padding: 10px 0 0 0;
+  margin: 10px 0;
+}
+
+.radio-group label,
+.checkbox-label {
+  display: inline-block;
+  font-weight: normal;
+  margin-right: 20px;
+}
+
+.radio-group input,
+.checkbox-label input {
+  margin-right: 6px;
+}
+
+.checkbox-label {
+  display: block;
+  margin-top: 10px;
+}
+
+/* =========================================================================
+   Footer (shared across pages)
+   ========================================================================= */
+footer {
+  background-color: var(--color-dark);
+  color: #ffffff;
+  text-align: center;
+  padding: 24px 20px;
+  margin-top: 20px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+footer p {
+  margin: 8px 0 0 0;
+  color: #d7d4df;
+}
+
+.footer-column h2 {
+  margin: 0 0 8px 0;
+  color: #ffffff;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+footer address {
+  margin: 0;
+  font-style: normal;
+  color: #d7d4df;
+}
+
+footer a {
+  color: var(--color-accent-light);
+}
+
+footer a:hover {
+  text-decoration: none;
+}
+
+.footer-divider {
+  max-width: 1100px;
+  margin: 28px auto 0 auto;
+  border-top: 1px solid #5a5665;
+}
+
+/* =========================================================================
+   Responsive layout for small screens
+   ========================================================================= */
+@media (max-width: 700px) {
+  .main-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero,
+  .profile,
+  .contact-intro {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .social-list {
+    justify-content: center;
+  }
+
+  .hero-text {
+    max-width: 100%;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    text-align: center;
+  }
+}
+
