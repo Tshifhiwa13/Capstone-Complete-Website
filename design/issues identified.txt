@@ -1,56 +1,48 @@
-# Issues errors and warning identified from the starter code 
+# Issues identified in the starter code
 
-HTML Issues
-1. No navigation on any pages — pages had no way to move between them.
-2. Non-semantic structure — every section was a generic `<div>` instead of
-   `header`, `nav`, `main`, `section`, `article`, `footer`.
-3. Missing `lang` attributes on `<html>`, and no `<meta charset>` or
-   viewport tag on any page — a validation and accessibility failure.
-4. All images missing `alt` text (`index.html`, `about.html`,
-   `projects.html`) — a major accessibility issue for screen reader users.
-5. About page: skills table completely missing, only left as an HTML
-   comment placeholder.
-6. Projects page: third project missing, leaving the page incomplete and
-   only 2 images (below the required 5+ site-wide).
-7. Contact form had no `<label>` elements, no input `id`/`name`
-   attributes, and only two input types (both `text`, one of which should
-   have been `email`).
-8. No validation attributes on the form (`required`, `pattern`,
-   `minlength`, etc.).
-9. CSS was linked as `css/styles.css` but the file was supplied flat as
-   `styles.css`, so the stylesheet never actually loaded.
-10. Duplicated boilerplate — `<div class="footer">` repeated with no
-    semantic meaning and no working mail link markup.
-11. No <meta charset="UTF-8"> or viewport meta tag (<meta name="viewport" content="width=device-width, initial-scale=1">) on any page — pages aren't marked for responsive/mobile rendering and character encoding isn't declared.
+HTML issues
+1. No navigation on any page.
+2. Non-semantic structure — every section was a generic <div> instead of
+   header, nav, main, section, article, footer.
+3. Missing lang attribute on <html>, and no meta charset or viewport tag
+   on any page — a validation, responsiveness and accessibility failure.
+4. All images missing alt text.
+5. About page: skills table completely missing, left as a comment only.
+6. Projects page: third project missing, and only 2 images site-wide
+   (below the required 5+).
+7. Contact form had no <label> elements, no id/name attributes, and only
+   two input types (both text, one should have been email).
+8. No validation attributes on the form (required, pattern, minlength).
+9. Stylesheet linked as css/styles.css but supplied flat as styles.css,
+   so it never loaded.
+10. Duplicated, meaningless <div class="footer"> blocks with no working
+    mail link markup.
 
-CSS Issues
-12. Only 2–3 selector types used (element and class) — no ID, descendant,
-    or pseudo-class selectors, and no combinators.
-13. No `:hover`/`:focus` states anywhere, so links and buttons gave no
-    interactive feedback and keyboard users had no visible focus indicator.
-14. Poor colour contrast — light-blue hero background paired with the
-    default body text colour fell below the 4.5:1 WCAG AA ratio.
-15. Footer was `text-align: left` despite a comment noting it should be
-    centred — a leftover bug from the previous developer.
-16. No navigation styling at all, despite a comment flagging it as
-    missing.
-17. No table or form styling — no borders, spacing, alternating rows, or
+CSS issues
+11. Only 2–3 selector types used — no ID, descendant or pseudo-class
+    selectors, and no combinators.
+12. No :hover/:focus states — no feedback for mouse or keyboard users.
+13. Poor colour contrast — light-blue hero background with default text
+    colour fell below the 4.5:1 WCAG AA ratio.
+14. Footer was text-align: left despite a comment saying it should be
+    centred.
+15. No navigation styling at all, despite a comment flagging it missing.
+16. No table or form styling — no borders, spacing, alternating rows or
     visual hierarchy.
-18. Minimal box-model usage — almost no margin/padding/border variety,
-    despite being a core requirement of the brief.
-19. No responsive behaviour — a single fixed layout with no media
-    queries, so the page broke on narrow screens.
+17. Minimal box-model usage — almost no margin/padding/border variety.
+18. No responsive behaviour — a single fixed layout broke on narrow
+    screens.
 
-#How to fix 
-I rebuilt each page around proper semantic elements (`header`, `nav`,
-`main`, `section`, `article`, `footer`), added a shared link
-navigation menu with `aria-current` on every page, wrote descriptive `alt`
-text for all five images, added a fully structured skills `<table>` on the
-About page, completed the third project card, and rebuilt the contact form
-with seven input types, labelled every field, and added `required`,
-`minlength`, and `pattern` validation. On the CSS side I corrected the
-stylesheet path, expanded selector variety (element, class, ID, descendant,
-attribute, pseudo-class), fixed contrast by darkening text/background pairs,
-centred the footer with flexbox, added hover/focus states throughout, styled
-the table and form, demonstrated the box model consistently, and added a
-mobile breakpoint that stacks the layout below.
+How I fixed them
+I rebuilt each page with semantic elements (header, nav, main, section,
+article, footer), added a shared nav menu with aria-current, and wrote
+alt text for every image. I built the skills table, completed the third
+project card, and rebuilt the contact form with seven input types,
+labels on every field, and required/minlength/pattern validation. On
+the CSS side I fixed the stylesheet path, expanded selector variety
+(element, class, ID, descendant, attribute, pseudo-class), fixed
+contrast, centred the footer, added hover/focus states, styled the
+table and form, demonstrated the box model, and added a mobile
+breakpoint. I later replaced leftover footer <div> wrappers with
+<section> and <hr> to stay within the 3-div limit, and added the
+missing lang="en" on about.html.
