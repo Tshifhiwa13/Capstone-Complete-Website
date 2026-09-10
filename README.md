@@ -83,17 +83,20 @@ No build step is required.
 
 ## Screenshots
 
-See the `screenshots/` folder for the full set. Highlights:
+See the [screenshots] folder for the full set. Highlights:
 
-- Homepage — `screenshots/Desktop view 1.png`
-- Courses page — `screenshots/Desktop view 4.png`
-- Styled table (About page) — `screenshots/Desktop view 3.png`
-- Certificates cards — `screenshots/Desktop view 5.png`
-- Projects grid — `screenshots/Desktop view 6.png`
-- Contact form —  `screenshots/Desktop view 7.png` , `screenshots/Desktop view 8.png` & `screenshots/Desktop view 9.png`
-- Mobile views — `screenshots/Mobile View 1.png`, `Mobile view 2.png`
-- Before/after — `screenshots/Original home page.png` vs.
-  `screenshots/Desktop view 1.png`
+[Homepage](screenshots/Desktop%20view%201.png)
+[Courses](screenshots/Desktop%20view%204.png)
+[About](screenshots/Desktop%20view%203.png)
+[Certificates](screenshots/Desktop%20view%205.png)
+[Projects](screenshots/Desktop%20view%206.png)
+[Contact form 1](screenshots/Desktop%20view%207.png)
+[Contact form 2](screenshots/Desktop%20view%208.png)
+[Contact form 3](screenshots/Desktop%20view%209.png)
+[Mobile view 1](screenshots/Mobile%20View%201.png)
+[Mobile view 2](screenshots/Mobile%20view%202.png)
+[Before](screenshots/Original%20home%20page.png)
+[After](screenshots/Desktop%20view%201.png)
 
 ## Reflection
 

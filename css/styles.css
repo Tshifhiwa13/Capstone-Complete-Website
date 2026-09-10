@@ -1,4 +1,3 @@
-
 :root {
   --color-dark: #292732;      /* headings, footer background, body text */
   --color-accent: #7628e8;    /* buttons, links and active states */
@@ -645,4 +644,3 @@ footer a:hover {
     text-align: center;
   }
 }
-
