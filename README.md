@@ -4,7 +4,8 @@ A multi-page portfolio website built.
 
 ## Overview
 
-The site has five pages — Home, About, Courses, Projects and Contact —
+The site has four required pages — Home, About, Projects and Contact
+ plus an additional Courses page.
 sharing one navigation menu and footer. It introduces Tshifhiwa Makherana's ,
 lists, skills and completed courses/certificates, showcases three
 projects, and offers a contact form. (Courses is an extra page beyond
